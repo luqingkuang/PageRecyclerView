@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="loading_data">正在加载数据...</string>
+    <string name="loading">加载中...</string>
+</resources>

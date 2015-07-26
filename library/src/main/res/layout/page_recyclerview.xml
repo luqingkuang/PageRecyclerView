@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.kingty.library.CustomSwipeToRefresh
+            android:id="@+id/page_swipeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/page_recyclerView"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.kingty.library.CustomSwipeToRefresh>
+
+
+        <ImageView
+            android:id="@+id/page_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="60dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/square_top"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/page_load_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/loading_data"
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/loading_progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/exit" />
+
+
+    </RelativeLayout>
+
+    <com.kingty.library.CustomLoadingLayout
+        android:id="@+id/loading_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#64000000" />
+</RelativeLayout>
