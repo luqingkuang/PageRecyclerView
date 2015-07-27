@@ -83,6 +83,7 @@ public class PageRecycleView extends RelativeLayout {
         page_swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                cursor = 0;
                 mIsOnCreate = true;
                 hasNextPage = true;
                 callBack.refreshData(pageSize);
@@ -215,7 +216,7 @@ public class PageRecycleView extends RelativeLayout {
                 }
             } else {
                 //refresh
-                cursor = 0;
+
                 items = getItems;
                 mBookends.notifyDataSetChanged();
                 page_swipeLayout.setRefreshing(false);

@@ -8,7 +8,7 @@ A RecyclerView make pagination easier,and also can add header and footer
 ```xml
 dependencies {
     ...
-    compile 'com.kingty.pageRecyclerView:library:1.0.1'
+    compile 'com.kingty.pageRecyclerView:library:1.0.2'
     ...
 }
 ```
