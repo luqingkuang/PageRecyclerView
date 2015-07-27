@@ -3,6 +3,14 @@ A RecyclerView make pagination easier,and also can add header and footer
 
 
 # Usages
+## compile
+```xml
+{
+...
+ compile 'com.kingty.pageRecycleView:pageRecycleView:1.0'
+ ...
+ }
+ ```
 ##add in your xml
 
 ```xml
