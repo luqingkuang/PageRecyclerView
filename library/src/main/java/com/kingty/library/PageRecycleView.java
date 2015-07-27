@@ -19,14 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * @author kingty
- * @title PageRecycleView
- * @description
- * @modifier
- * @date
- * @since 15/7/21 下午5:09
- */
 public class PageRecycleView extends RelativeLayout {
     RecyclerView page_recyclerView;
     ImageView page_top;
@@ -41,8 +33,7 @@ public class PageRecycleView extends RelativeLayout {
     private boolean isNeedTopBunton = true;
     private boolean isNeedLoadMore = true;
 
-    private final int PAGESIZE = 50;
-    private  int pageSize = PAGESIZE;
+    private  int pageSize = 20;
     private int cursor = 0;//start page index
     List items = new ArrayList();
     private boolean hasNextPage = true;
@@ -232,7 +223,7 @@ public class PageRecycleView extends RelativeLayout {
                 }
             }
             mIsOnCreate = false;
-            cursor += 20;
+            cursor += pageSize;
         } else {
             if(isNeedTopBunton) {
                 page_top.setVisibility(View.VISIBLE);
@@ -240,7 +231,7 @@ public class PageRecycleView extends RelativeLayout {
             //load more
             items.addAll(getItems);
             mBookends.notifyDataSetChanged();
-            cursor += 20;
+            cursor += pageSize;
             page_load_more.setVisibility(View.GONE);
         }
         if (!hasNextPage) {
