@@ -215,6 +215,7 @@ public class PageRecycleView extends RelativeLayout {
                 }
             } else {
                 //refresh
+                cursor = 0;
                 items = getItems;
                 mBookends.notifyDataSetChanged();
                 page_swipeLayout.setRefreshing(false);
