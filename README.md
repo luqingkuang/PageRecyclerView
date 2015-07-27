@@ -1,6 +1,7 @@
 # PageRecyclerView
 A RecyclerView make pagination easier,and also can add header and footer
 
+![image](https://github.com/kingty/PageRecyclerView/images/screenshot.jpg)
 
 # Usages
 ##dependencies
@@ -121,6 +122,5 @@ pageRecycleView = (PageRecycleView) this.findViewById(R.id.recyclerView);
             }
         });
 ```
-# Screen shots
 
 
