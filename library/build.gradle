@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
 
 android {
     compileSdkVersion 22
@@ -25,3 +28,97 @@ dependencies {
     compile 'com.lsjwzh:loadingeverywhere:1.1.1'
     compile('com.lsjwzh:materialloadingprogressbar:0.5.6-RELEASE')
 }
+
+
+
+version = "1.0"
+
+def siteUrl = 'https://github.com/kingty/PageRecyclerView'      // 项目的主页
+def gitUrl = 'https://github.com/kingty/PageRecyclerView.git'   // Git仓库的url
+group = "com.kingty.pageRecyclerView"
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'page RecyclerView'    //项目描述
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'kingty'        //填写的一些基本信息
+                        name 'kingty'
+                        email '398036899@qq.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "pageRecyclerView"    //发布到JCenter上的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+
+//
+//
+//// ext is a gradle closure allowing the declaration of global properties
+//ext {
+//    PUBLISH_GROUP_ID = 'com.kingty.pageRecycleView'
+//    PUBLISH_ARTIFACT_ID = 'pageRecycleView'
+//    PUBLISH_VERSION = android.defaultConfig.versionName
+//}
+//
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        def deployPath = file(getProperty('aar.deployPath'))
+//        repository(url: "file://${deployPath.absolutePath}")
+//        pom.project {
+//            groupId project.PUBLISH_GROUP_ID
+//            artifactId project.PUBLISH_ARTIFACT_ID
+//            version project.PUBLISH_VERSION
+//        }
+//    }
+//}
+
+//./gradlew tasks
+//./gradlew uploadArchives
