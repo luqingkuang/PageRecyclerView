@@ -1,7 +1,7 @@
 # PageRecyclerView
 A RecyclerView make pagination easier,and also can add header and footer
 
-![image](https://github.com/kingty/PageRecyclerView/images/screenshot.gif)
+![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot.gif)
 
 # Usages
 ##dependencies
