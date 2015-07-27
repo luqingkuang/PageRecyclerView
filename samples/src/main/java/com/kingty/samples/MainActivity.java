@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kingty.library.PageRecycleView;
 
@@ -26,6 +27,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         pageRecycleView = (PageRecycleView) this.findViewById(R.id.recyclerView);
+        pageRecycleView.setPageSize(50);
         pageRecycleView.setCallBack(new PageRecycleView.CallBack() {
             @Override
             public void firstLoadData(final int pagesize) {
@@ -61,6 +63,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void lodeNextPage(int cursor, final int pagesize) {
+                Toast.makeText(MainActivity.this,""+cursor,Toast.LENGTH_SHORT).show();
                 handler.postDelayed(new Runnable() {//模拟网络延时
                     @Override
                     public void run() {
@@ -68,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
                         for (int i = 0; i < pagesize; i++) {
                             list.add(count++);
                         }
-                        if(count>200){
+                        if(count>100){
                             pageRecycleView.HasNextPage(false);
                         }
                         pageRecycleView.initData(list);

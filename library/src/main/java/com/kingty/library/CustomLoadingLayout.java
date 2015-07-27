@@ -8,12 +8,7 @@ import android.view.View;
 import com.lsjwzh.loadingeverywhere.LoadingLayout;
 import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 
-/**
- * 自定义的Loading Layout;用于替换掉LoadingMask
- *
- * @author Green
- * @since: 15/2/9 上午1:19
- */
+
 public class CustomLoadingLayout extends LoadingLayout {
     CircleProgressBar mProgressBar;
 
@@ -29,14 +24,6 @@ public class CustomLoadingLayout extends LoadingLayout {
     public CustomLoadingLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-
-    /**
-     * create a LoadingLayout to wrap and replace the targetView.
-     * Note: if you attachTo targetView on 'onCreate' method,targetView may be not layout complete.
-     *
-     * @param targetView
-     * @return
-     */
     public static CustomLoadingLayout wrap(final View targetView) {
         if (targetView == null) {
             throw new IllegalArgumentException();

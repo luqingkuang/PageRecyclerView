@@ -7,14 +7,7 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 
 
-/**
- * @author kingty
- * @title CustomSwipeToRefresh
- * @description
- * @modifier
- * @date
- * @since 15/2/27 下午3:27
- */
+
 public class CustomSwipeToRefresh extends SwipeRefreshLayout {
     private OnDispatchTouchEventListener onDispatchTouchEventListener;
     private int mTouchSlop;
