@@ -28,7 +28,13 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         pageRecycleView = (PageRecycleView) this.findViewById(R.id.recyclerView);
         pageRecycleView.setPageSize(50);
+        pageRecycleView.setIsNeedRefresh(false);
         pageRecycleView.setCallBack(new PageRecycleView.CallBack() {
+            @Override
+            public void initRecyclerView(RecyclerView recyclerView) {
+
+            }
+
             @Override
             public void firstLoadData(final int pagesize) {
 

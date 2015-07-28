@@ -151,6 +151,13 @@ public class PageRecycleView extends RelativeLayout {
             callBack.firstLoadData(pageSize);
         }
     }
+
+    public void setIsNeedRefresh(boolean isNeedRefresh){
+        page_swipeLayout.setNeedRefresh(isNeedRefresh);
+    }
+    public void setLayoutManager(RecyclerView.LayoutManager manager){
+        page_recyclerView.setLayoutManager(manager);
+    }
     private void addHeader(View header) {
         if (mBookends != null) {
             mBookends.addHeader(header);
@@ -248,8 +255,6 @@ public class PageRecycleView extends RelativeLayout {
             //in case of load again,set it back
             mIsLoadingMore = true;
         }
-        page_swipeLayout.setRefreshing(false);
-
     }
 
 
@@ -278,6 +283,7 @@ public class PageRecycleView extends RelativeLayout {
         LoadData();
     }
     public static interface CallBack {
+        void initRecyclerView(RecyclerView recyclerView);
         void firstLoadData(int pagesize);
         void refreshData(int pagesize);
         void lodeNextPage(int cursor, int pagesize);
@@ -303,6 +309,5 @@ public class PageRecycleView extends RelativeLayout {
         View addHeader();
         View addFooter();
     }
-
 
 }
