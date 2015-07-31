@@ -8,16 +8,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @title Bookends
- * @description
- * A RecyclerView.Adapter that allows for headers and footers as well
- * 新增了 ，始终保持header，footer fullspan的控制，此控制 只对 StaggeredGridLayoutManager 有效
- * @author mac
- * @since 15/5/19 下午4:06
- * @modifier
- * @date
- **/
+
 public class Bookends<T extends RecyclerView.Adapter> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	private final T mBase;
@@ -60,7 +51,7 @@ public class Bookends<T extends RecyclerView.Adapter> extends RecyclerView.Adapt
 	/**
 	 * Adds a header view.
 	 */
-	public void addHeader(@NonNull View view) {
+	public void addHeader(View view) {
 		if (view == null) {
 			throw new IllegalArgumentException("You can't have a null header!");
 		}
@@ -70,7 +61,7 @@ public class Bookends<T extends RecyclerView.Adapter> extends RecyclerView.Adapt
 	/**
 	 * Adds a footer view.
 	 */
-	public void addFooter(@NonNull View view) {
+	public void addFooter(View view) {
 		if (view == null) {
 			throw new IllegalArgumentException("You can't have a null footer!");
 		}

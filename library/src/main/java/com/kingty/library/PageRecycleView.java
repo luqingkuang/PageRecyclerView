@@ -213,6 +213,12 @@ public class PageRecycleView extends RelativeLayout {
                 if (headOrFooterCallBack != null && headOrFooterCallBack.addHeader() != null) {
                     mBookends.addHeader(headOrFooterCallBack.addHeader());
                 }
+                if (headOrFooterCallBack != null && headOrFooterCallBack.addFooter() != null ) {
+                    mBookends.addFooter(headOrFooterCallBack.addFooter());
+                }
+                if (mBookends.getFooter(0) != null) {
+                    mBookends.setFooterVisibility(false);
+                }
                 page_recyclerView.setAdapter(mBookends);
                 page_recyclerView.post(new Runnable() {
                                            @Override
@@ -284,19 +290,8 @@ public class PageRecycleView extends RelativeLayout {
         }
         if (!hasNextPage) {
             mIsLoadingMore = false;
-            if (headOrFooterCallBack != null && headOrFooterCallBack.addFooter() != null && mBookends.getFooterCount() == 0) {
-                mBookends.addFooter(headOrFooterCallBack.addFooter());
-                page_recyclerView.postDelayed(new Runnable() {
-                                                  @Override
-                                                  public void run() {
-                                                      mBookends.notifyDataSetChanged();
-                                                  }
-                                              }, 500
-                );
-            }
-            if (mBookends.getFooter(0) != null) {
-                mBookends.setFooterVisibility(true);
-            }
+            mBookends.setFooterVisibility(true);
+
         } else {
             //in case of load again,set it back
             mIsLoadingMore = true;
@@ -372,6 +367,7 @@ public class PageRecycleView extends RelativeLayout {
 
         View addFooter();
     }
+
 
 
 }

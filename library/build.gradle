@@ -28,7 +28,7 @@ dependencies {
 
 
 
-version = "1.0.2"
+version = "1.0.3"
 
 def siteUrl = 'https://github.com/kingty/PageRecyclerView'      // 项目的主页
 def gitUrl = 'https://github.com/kingty/PageRecyclerView.git'   // Git仓库的url

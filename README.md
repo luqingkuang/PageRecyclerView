@@ -1,7 +1,9 @@
 # PageRecyclerView
-A RecyclerView make pagination easier,and also can add header and footer
+A RecyclerView make pagination easier,
+and also can add a header and a footer esayly,
+support LinerLayoutManager and StaggeredGridLayoutManager now .
 
-![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot.gif)
+![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot.gif)![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot2.gif)
 
 # Usages
 ##dependencies
