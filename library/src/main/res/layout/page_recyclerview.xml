@@ -67,10 +67,4 @@
 
 
     </RelativeLayout>
-
-    <com.kingty.library.CustomLoadingLayout
-        android:id="@+id/loading_wrapper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#64000000" />
 </RelativeLayout>

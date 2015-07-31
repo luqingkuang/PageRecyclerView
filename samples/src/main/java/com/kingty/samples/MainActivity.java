@@ -3,7 +3,10 @@ package com.kingty.samples;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,13 +25,15 @@ public class MainActivity extends ActionBarActivity {
     int count = 0;
     PageRecycleView pageRecycleView;
     Handler handler = new Handler();
+    final StaggeredGridLayoutManager mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         pageRecycleView = (PageRecycleView) this.findViewById(R.id.recyclerView);
         pageRecycleView.setPageSize(50);
-        pageRecycleView.setIsNeedRefresh(false);
+//        pageRecycleView.setIsNeedRefresh(false);
+        pageRecycleView.setLayoutManager(mLayoutManager);
         pageRecycleView.setCallBack(new PageRecycleView.CallBack() {
             @Override
             public void initRecyclerView(RecyclerView recyclerView) {
@@ -65,6 +70,7 @@ public class MainActivity extends ActionBarActivity {
                         pageRecycleView.initData(list);
                     }
                 }, 2000);
+
             }
 
             @Override
@@ -106,10 +112,10 @@ public class MainActivity extends ActionBarActivity {
             }
 
             @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, List items) {
+            public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
                 ItemViewHolder itemViewHolder = (ItemViewHolder) viewHolder;
-                itemViewHolder.text.setText((items.get(position)) + "");
+                itemViewHolder.text.setText((pageRecycleView.getItems().get(position)) + "");
 
             }
         });
