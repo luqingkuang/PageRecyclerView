@@ -10,7 +10,7 @@ support LinerLayoutManager and StaggeredGridLayoutManager now .
 ```xml
 dependencies {
     ...
-    compile 'com.kingty.pageRecyclerView:library:1.0.2'
+    compile 'com.kingty.pageRecyclerView:library:1.0.3'
     ...
 }
 ```
