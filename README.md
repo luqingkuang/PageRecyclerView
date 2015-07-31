@@ -3,7 +3,9 @@ A RecyclerView make pagination easier,
 and also can add a header and a footer esayly,
 support LinerLayoutManager and StaggeredGridLayoutManager now .
 
-![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot.gif)![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot2.gif)
+![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot.gif)
+<&nbsp>
+![image](https://github.com/kingty/PageRecyclerView/blob/master/images/screenshot2.gif)
 
 # Usages
 ##dependencies
@@ -26,7 +28,11 @@ dependencies {
 
 ## add in your activity
 ```
+
 pageRecycleView = (PageRecycleView) this.findViewById(R.id.recyclerView);
+        pageRecycleView.setPageSize(50);
+//        pageRecycleView.setIsNeedRefresh(false);
+        pageRecycleView.setLayoutManager(mLayoutManager);
         pageRecycleView.setCallBack(new PageRecycleView.CallBack() {
             @Override
             public void firstLoadData(final int pagesize) {
